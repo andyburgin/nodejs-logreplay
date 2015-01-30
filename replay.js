@@ -105,22 +105,16 @@ Lazy(logfile.stdout)
                 // FIRE ZE MISSILES!!...er, requests, I mean
                 requestSet[runOffset].forEach(function(item){
                     var reqNum = reqSeq++;
-                    var req = http.request({
-                            host: config.target.host,
-                            port: config.target.port,
-                            path: item.uri,
-                            method: item.method,
-                            reqStart: new Date().getTime(),
-                            agent: false
-                        }, 
-                        function(resp) {}
-                    )
-                    .on('socket', function() { timings[reqNum] = new Date().getTime(); })
-                    .on('response', function(resp) {
-                        var diff = (new Date().getTime()) - timings[reqNum];
-                        console.log(' - #' + reqNum + ' [DT=' + diff + 'ms, R=' + resp.statusCode + ']'); }
-                    );
-                    req.end();
+                    var newdate = dateFormat(new Date(), "dd/mmm/yyyy:HH:MM:ss");
+                    var newline = item.origline.replace(item.origdate,newdate);
+
+                    console.log('Output : '+newline);
+
+                    // write log file
+                    var fs = require('fs');
+                    var fd = fs.openSync(config.output, 'a');
+                    fs.writeSync(fd, newline+'\n');
+                    fs.closeSync(fd);
                 });
 
                 // Discard the request info so we don't process it again
