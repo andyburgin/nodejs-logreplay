@@ -21,10 +21,11 @@ try {
 }
 
 // Require the necessary modules
-var http = config.target.port == '443' ? require('https') : require('http');
+//###########var http = config.target.port == '443' ? require('https') : require('http');
 var Lazy = require('lazy');
 var spawn = require('child_process').spawn;
 var logfile = spawn('cat', [config.source]);
+var dateFormat = require('dateformat');
 
 // Set up some variables
 var regexLogLine = /^[0-9a-f.:]+ - - \[([0-9]{2}\/[a-z]{3}\/[0-9]{4}):([0-9]{2}:[0-9]{2}:[0-9]{2}[^\]]*)\] \"([^\"]+)\" [0-9]+ [0-9]+/i;
