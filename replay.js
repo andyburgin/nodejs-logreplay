@@ -55,9 +55,8 @@ Lazy(logfile.stdout)
             if ( httpRec != null ) {
                 return {
                     datetime: recDate,
-                    method: httpRec[1],
-                    http: httpRec[3],
-                    uri: httpRec[2]
+                    origdate: parts[1]+':'+parts[2],
+                    origline: line
                 };
             }
         } 
