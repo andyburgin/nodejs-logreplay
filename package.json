@@ -1,0 +1,13 @@
+{
+  "name": "nodejs-replay",
+  "homepage": "https://github.com/andyburgin/nodejs-replay",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andyburgin/nodejs-replay"
+  },
+  "dependencies": {
+    "konphyg": "1.4.0",
+    "lazy": "1.0.11",
+    "dateformat": "1.0.11"
+  }
+}
