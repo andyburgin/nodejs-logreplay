@@ -12,11 +12,7 @@ try {
 
     if (!config.source) throw "Invalid config file: missing 'source'";
     if (!config.speedupFactor) throw "Invalid config file: missing 'speedupFactor'";
-    if (!config.target) throw "Invalid config file: missing 'target'";
-    else {
-      if (!config.target.host) throw "Invalid config file: missing 'target.host'";
-      if (!config.target.port) throw "Invalid config file: missing 'target.port'";
-    }
+    if (!config.output) throw "Invalid config file: missing 'output'";
 
 } catch (e) {
     console.log(e + "\n");
