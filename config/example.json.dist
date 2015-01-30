@@ -1,4 +1,5 @@
 {
+  "output": "/path/to/output_log",
   "source": "/path/to/your/access_log",
   "speedupFactor": "1",
   "target": {
